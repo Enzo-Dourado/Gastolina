@@ -8,7 +8,7 @@ public class Veiculos {
     private String modeloVeiculo;
     private int anoVeiculo;
     private String detalhesVeiculo;
-    private double consumoPorLitroVeiculo
+    private double consumoPorLitroVeiculo;
 
     public double getConsumoPorLitroVeiculo() {
         return consumoPorLitroVeiculo;

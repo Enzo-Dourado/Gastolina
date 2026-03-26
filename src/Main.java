@@ -12,10 +12,20 @@ public class Main {
         ConsumoDaAPI consumo = new ConsumoDaAPI();
         ChamarGson gson = new ChamarGson();
 
-        System.out.println("Digite que tipo de veiculo quer analisar (cars, motorcycles, trucks): ");
-        consumo.setTipoVeiculo(sc.next());
-        consumo.consumoDaAPI();
+        while (true) {
+            System.out.println("Digite que tipo de veiculo quer analisar (cars, motorcycles, trucks): ");
+            consumo.setTipoVeiculo(sc.next());
 
+            if (consumo.getTipoVeiculo().equalsIgnoreCase("cars") ||
+                    consumo.getTipoVeiculo().equalsIgnoreCase("motorcycles") ||
+                    consumo.getTipoVeiculo().equalsIgnoreCase("trucks")) {
+                break;
+            } else {
+                System.out.println("Tipo digitado não aceito, tente novamente...");
+            }
+
+        }
+        consumo.consumoDaAPI();
 
         IdDasMarcas[] marcas = gson.getGson().fromJson(consumo.getJson(), IdDasMarcas[].class);
         for(IdDasMarcas marca : marcas) {
