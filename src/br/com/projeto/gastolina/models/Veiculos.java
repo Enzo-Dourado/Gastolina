@@ -8,6 +8,15 @@ public class Veiculos {
     private String modeloVeiculo;
     private int anoVeiculo;
     private String detalhesVeiculo;
+    private double consumoPorLitroVeiculo
+
+    public double getConsumoPorLitroVeiculo() {
+        return consumoPorLitroVeiculo;
+    }
+
+    public void setConsumoPorLitroVeiculo(double consumoPorLitroVeiculo) {
+        this.consumoPorLitroVeiculo = consumoPorLitroVeiculo;
+    }
 
     public Veiculos() {}
 
