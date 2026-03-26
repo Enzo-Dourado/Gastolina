@@ -1,5 +1,7 @@
 package br.com.projeto.gastolina.models;
 
+import br.com.projeto.gastolina.records.IdDasMarcas;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -9,6 +11,11 @@ import java.net.http.HttpResponse;
 public class ConsumoDaAPI extends Veiculos{
     private String url;
     private String json;
+
+    public ConsumoDaAPI() {}
+    public ConsumoDaAPI(IdDasMarcas code, IdDasMarcas name) {
+        super(code, name);
+    }
 
     public String getUrl() {
         this.url = "https://fipe.parallelum.com.br/api/v2/" + getTipoVeiculo() + "/brands";
@@ -35,7 +42,6 @@ public class ConsumoDaAPI extends Veiculos{
                     .send(request, HttpResponse.BodyHandlers.ofString());
 
             this.json = response.body();
-            System.out.println(json);
 
         }  catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);

@@ -1,11 +1,21 @@
 package br.com.projeto.gastolina.models;
 
+import br.com.projeto.gastolina.records.IdDasMarcas;
+
 public class Veiculos {
     private int idMarcaVeiculo;
     private String tipoVeiculo;
     private String modeloVeiculo;
     private int anoVeiculo;
     private String detalhesVeiculo;
+
+    public Veiculos() {}
+
+    public Veiculos(IdDasMarcas code, IdDasMarcas name) {
+        this.idMarcaVeiculo = Integer.parseInt(code.code());
+        this.tipoVeiculo = name.name();
+    }
+
 
     public int getIdMarcaVeiculo() {
         return idMarcaVeiculo;
