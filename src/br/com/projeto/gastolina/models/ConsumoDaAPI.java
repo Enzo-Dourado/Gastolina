@@ -1,5 +1,6 @@
 package br.com.projeto.gastolina.models;
 
+import br.com.projeto.gastolina.models.superclass.Veiculos;
 import br.com.projeto.gastolina.records.IdDasMarcas;
 
 import java.io.IOException;
@@ -8,13 +9,15 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class ConsumoDaAPI extends Veiculos{
+public class ConsumoDaAPI extends Veiculos {
     private String url;
     private String json;
 
-    public ConsumoDaAPI() {}
-    public ConsumoDaAPI(IdDasMarcas code, IdDasMarcas name) {
-        super(code, name);
+    public ConsumoDaAPI(String tipoVeiculo) {
+        super(tipoVeiculo);
+    }
+    public ConsumoDaAPI(IdDasMarcas idDasMarcas) {
+        super(idDasMarcas);
     }
 
     public String getUrl() {
@@ -41,7 +44,7 @@ public class ConsumoDaAPI extends Veiculos{
             HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
 
-            this.json = response.body();
+            setJson(response.body());
 
         }  catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);

@@ -1,6 +1,6 @@
 package br.com.projeto.gastolina.models;
 
-import br.com.projeto.gastolina.records.IdDasMarcas;
+import br.com.projeto.gastolina.models.superclass.Veiculos;
 
 public class CalculosDePreco {
     private double precoGasolina;

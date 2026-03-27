@@ -6,10 +6,17 @@ import com.google.gson.GsonBuilder;
 public class ChamarGson {
     private Gson gson;
 
+    public void setGson(Gson gson) {
+        this.gson = gson;
+    }
+
     public Gson getGson() {
-        gson = new GsonBuilder()
+        return gson;
+    }
+
+    public void chamaGson() {
+        this.gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .create();
-        return gson;
     }
 }

@@ -1,4 +1,4 @@
-package br.com.projeto.gastolina.models;
+package br.com.projeto.gastolina.models.superclass;
 
 import br.com.projeto.gastolina.records.IdDasMarcas;
 
@@ -10,6 +10,9 @@ public class Veiculos {
     private String detalhesVeiculo;
     private double consumoPorLitroVeiculo;
 
+    public Veiculos(String tipoVeiculo) {
+        this.tipoVeiculo = tipoVeiculo;
+    }
     public double getConsumoPorLitroVeiculo() {
         return consumoPorLitroVeiculo;
     }
@@ -18,21 +21,21 @@ public class Veiculos {
         this.consumoPorLitroVeiculo = consumoPorLitroVeiculo;
     }
 
-    public Veiculos() {}
 
-    public Veiculos(IdDasMarcas code, IdDasMarcas name) {
-        this.idMarcaVeiculo = Integer.parseInt(code.code());
-        this.tipoVeiculo = name.name();
+    public Veiculos(IdDasMarcas idDasMarcas) {
+        this.idMarcaVeiculo = Integer.parseInt(idDasMarcas.code());
+        this.tipoVeiculo =  idDasMarcas.name();
+
     }
 
+    public void setIdMarcaVeiculo(int idMarcaVeiculo) {
+        this.idMarcaVeiculo = idMarcaVeiculo;
+    }
 
     public int getIdMarcaVeiculo() {
         return idMarcaVeiculo;
     }
 
-    public void setTipoVeiculo(String tipoVeiculo) {
-        this.tipoVeiculo = tipoVeiculo;
-    }
 
     public String getTipoVeiculo() {
         return tipoVeiculo;
@@ -48,5 +51,11 @@ public class Veiculos {
 
     public String getDetalhesVeiculo() {
         return detalhesVeiculo;
+    }
+
+    @Override
+    public String toString() {
+        return "{Id: " + idMarcaVeiculo +
+                ", Nome: " + tipoVeiculo + "}";
     }
 }
