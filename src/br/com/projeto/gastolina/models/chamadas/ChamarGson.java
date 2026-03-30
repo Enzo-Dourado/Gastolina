@@ -1,4 +1,4 @@
-package br.com.projeto.gastolina.models;
+package br.com.projeto.gastolina.models.chamadas;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

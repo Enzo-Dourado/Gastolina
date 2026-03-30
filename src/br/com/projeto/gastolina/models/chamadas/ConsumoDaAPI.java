@@ -1,4 +1,4 @@
-package br.com.projeto.gastolina.models;
+package br.com.projeto.gastolina.models.chamadas;
 
 import br.com.projeto.gastolina.models.superclass.Veiculos;
 import br.com.projeto.gastolina.records.IdDasMarcas;
@@ -50,5 +50,25 @@ public class ConsumoDaAPI extends Veiculos {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public void consumoDaAPIParaChamarModeloDoVeiculo(){
+       this.url = getUrl() + "/" +  "59" + "/models";
+
+        try {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(this.url))
+                    .build();
+
+            HttpResponse<String> response = client
+                    .send(request, HttpResponse.BodyHandlers.ofString());
+
+            setJson(response.body());
+            System.out.println(getJson());
+
+        }  catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
