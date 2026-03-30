@@ -20,6 +20,10 @@ public class ConsumoDaAPI extends Veiculos {
         super(idDasMarcas);
     }
 
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     public String getUrl() {
         this.url = "https://fipe.parallelum.com.br/api/v2/" + getTipoVeiculo() + "/brands";
         return url;
@@ -46,29 +50,21 @@ public class ConsumoDaAPI extends Veiculos {
 
             setJson(response.body());
 
+
         }  catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
 
     }
 
-    public void consumoDaAPIParaChamarModeloDoVeiculo(){
-       this.url = getUrl() + "/" +  "59" + "/models";
+    public void consumoDaAPIParaChamarModeloDoVeiculo() {
+        setUrl(getUrl() + "/" + getIdMarcaVeiculo() + "/models/");
+        consumoDaAPI();
+        System.out.println(getJson());
+    }
 
-        try {
-            HttpClient client = HttpClient.newHttpClient();
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(this.url))
-                    .build();
-
-            HttpResponse<String> response = client
-                    .send(request, HttpResponse.BodyHandlers.ofString());
-
-            setJson(response.body());
-            System.out.println(getJson());
-
-        }  catch (IOException | InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+    public void consumoDaAPIParaChamarAnoDoVeiculo(){
+        setUrl(getUrl() + getIdModeloVeiculo() + "/years");
+        consumoDaAPIParaChamarModeloDoVeiculo();
     }
 }

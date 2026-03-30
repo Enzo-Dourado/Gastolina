@@ -6,9 +6,19 @@ public class Veiculos {
     private int idMarcaVeiculo;
     private String tipoVeiculo;
     private String modeloVeiculo;
+    private int IdModeloVeiculo;
     private int anoVeiculo;
     private String detalhesVeiculo;
     private double consumoPorLitroVeiculo;
+
+    public int getIdModeloVeiculo() {
+        return IdModeloVeiculo;
+    }
+
+    public void setIdModeloVeiculo(int idModeloVeiculo) {
+        IdModeloVeiculo = idModeloVeiculo;
+    }
+
 
     public Veiculos(String tipoVeiculo) {
         this.tipoVeiculo = tipoVeiculo;

@@ -1,4 +1,4 @@
-package br.com.projeto.gastolina.models;
+package br.com.projeto.gastolina.models.calculos;
 
 import br.com.projeto.gastolina.models.superclass.Veiculos;
 

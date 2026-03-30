@@ -25,6 +25,9 @@ public class Testers {
 
         ConsumoDaAPI consumo = new ConsumoDaAPI(entrarNaApi);
 //        consumo.consumoDaAPI();
+
+
+        consumo.setIdMarcaVeiculo(1);
         consumo.consumoDaAPIParaChamarModeloDoVeiculo();
     }
 }
