@@ -4,12 +4,18 @@ import br.com.projeto.gastolina.models.chamadas.ChamarGson;
 import br.com.projeto.gastolina.models.chamadas.ConsumoDaAPI;
 import br.com.projeto.gastolina.models.superclass.Veiculos;
 import br.com.projeto.gastolina.records.IdDasMarcas;
+import br.com.projeto.gastolina.records.IdDosModelos;
 import com.google.gson.JsonArray;
 
 import java.util.Scanner;
 
-public class ModeloDeVeiculoLoop {
+public class ModeloDeVeiculoLoop extends Veiculos {
     private int buscarVeiculo;
+
+    public ModeloDeVeiculoLoop(IdDosModelos idDosModelos) {
+        super(idDosModelos);
+    }
+
 
     public int getBuscarVeiculo() {
         return buscarVeiculo;
@@ -20,7 +26,7 @@ public class ModeloDeVeiculoLoop {
     }
 
     public void chamaModeloDeVeiculo() {
-        TipoDeVeiculoLoop loopTipoVeiculo =  new TipoDeVeiculoLoop();
+        TipoDeVeiculoLoop loopTipoVeiculo =  new TipoDeVeiculoLoop(getTipoVeiculo());
         loopTipoVeiculo.chamaTipoDeVeiculo();
 
         ConsumoDaAPI consumo = new ConsumoDaAPI(loopTipoVeiculo.getEntrarNaApi());
@@ -31,9 +37,9 @@ public class ModeloDeVeiculoLoop {
 
             System.out.println("\n** Em caso de duvida dos ID, digite 0 para analisar **\n");
             System.out.print("Digite o ID da Marca do Veiculo que você deseja buscar: ");
-            buscarVeiculo = sc.nextInt();
+            setBuscarVeiculo(sc.nextInt());
 
-            if (buscarVeiculo == 0) {
+            if (getBuscarVeiculo() == 0) {
                 ChamarGson gson = new ChamarGson();
                 gson.chamaGson();
                 // Converte o Json em um Array
@@ -44,17 +50,15 @@ public class ModeloDeVeiculoLoop {
                     Veiculos veiculo = new Veiculos(marca);
                     System.out.println(veiculo);
                 }
-            } else if (buscarVeiculo > 0) {
+            } else if (getBuscarVeiculo() > 0) {
                 System.out.println("\nBuscando informações...\n");
-                consumo.setIdMarcaVeiculo(buscarVeiculo);
+                consumo.setIdMarcaVeiculo(getBuscarVeiculo());
                 break;
 
             } else {
                 System.out.println("Valor digitado não aceito, tente novamente...");
             }
-
         }
-
         consumo.consumoDaAPIParaChamarModeloDoVeiculo();
     }
 }

@@ -1,9 +1,16 @@
 package br.com.projeto.gastolina.loops;
 
+import br.com.projeto.gastolina.models.superclass.Veiculos;
+
 import java.util.Scanner;
 
-public class TipoDeVeiculoLoop {
+public class TipoDeVeiculoLoop extends Veiculos {
+
     private String entrarNaApi;
+
+    public TipoDeVeiculoLoop(String tipoVeiculo) {
+        super(tipoVeiculo);
+    }
 
     public String getEntrarNaApi() {
         return entrarNaApi;
@@ -28,5 +35,10 @@ public class TipoDeVeiculoLoop {
                 System.out.print("Digite que tipo de veiculo quer analisar (cars, motorcycles, trucks): ");
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

@@ -66,5 +66,6 @@ public class ConsumoDaAPI extends Veiculos {
     public void consumoDaAPIParaChamarAnoDoVeiculo(){
         setUrl(getUrl() + getIdModeloVeiculo() + "/years");
         consumoDaAPIParaChamarModeloDoVeiculo();
+        System.out.println(getJson());
     }
 }

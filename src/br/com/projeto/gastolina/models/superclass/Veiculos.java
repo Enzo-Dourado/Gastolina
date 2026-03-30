@@ -1,24 +1,24 @@
 package br.com.projeto.gastolina.models.superclass;
 
 import br.com.projeto.gastolina.records.IdDasMarcas;
+import br.com.projeto.gastolina.records.IdDosModelos;
 
 public class Veiculos {
     private int idMarcaVeiculo;
     private String tipoVeiculo;
     private String modeloVeiculo;
-    private int IdModeloVeiculo;
+    private int idModeloVeiculo;
     private int anoVeiculo;
     private String detalhesVeiculo;
     private double consumoPorLitroVeiculo;
 
     public int getIdModeloVeiculo() {
-        return IdModeloVeiculo;
+        return idModeloVeiculo;
     }
 
     public void setIdModeloVeiculo(int idModeloVeiculo) {
-        IdModeloVeiculo = idModeloVeiculo;
+        this.idModeloVeiculo = idModeloVeiculo;
     }
-
 
     public Veiculos(String tipoVeiculo) {
         this.tipoVeiculo = tipoVeiculo;
@@ -36,6 +36,11 @@ public class Veiculos {
         this.idMarcaVeiculo = Integer.parseInt(idDasMarcas.code());
         this.tipoVeiculo =  idDasMarcas.name();
 
+    }
+
+    public Veiculos(IdDosModelos idDosModelos) {
+        this.idModeloVeiculo = Integer.parseInt(idDosModelos.code());
+        this.modeloVeiculo = idDosModelos.name();
     }
 
     public void setIdMarcaVeiculo(int idMarcaVeiculo) {
@@ -68,4 +73,5 @@ public class Veiculos {
         return "{Id: " + idMarcaVeiculo +
                 ", Nome: " + tipoVeiculo + "}";
     }
+
 }
