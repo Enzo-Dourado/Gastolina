@@ -1,6 +1,7 @@
 package br.com.projeto.gastolina.models.superclass;
 
 import br.com.projeto.gastolina.records.IdDasMarcas;
+import br.com.projeto.gastolina.records.IdDosAnosDosModelos;
 import br.com.projeto.gastolina.records.IdDosModelos;
 
 public class Veiculos {
@@ -12,6 +13,25 @@ public class Veiculos {
     private String detalhesVeiculo;
     private double consumoPorLitroVeiculo;
 
+    public Veiculos(String tipoVeiculo) {
+        this.tipoVeiculo = tipoVeiculo;
+    }
+
+    public Veiculos(IdDasMarcas idDasMarcas) {
+        this.idMarcaVeiculo = Integer.parseInt(idDasMarcas.code());
+        this.tipoVeiculo =  idDasMarcas.name();
+    }
+
+    public Veiculos(IdDosModelos idDosModelos) {
+        this.idModeloVeiculo = Integer.parseInt(idDosModelos.code());
+        this.modeloVeiculo = idDosModelos.name();
+    }
+
+    public Veiculos(IdDosAnosDosModelos idDosAnosDosModelos) {
+        this.anoVeiculo = Integer.parseInt(idDosAnosDosModelos.code());
+        this.tipoVeiculo =  idDosAnosDosModelos.name();
+    }
+
     public int getIdModeloVeiculo() {
         return idModeloVeiculo;
     }
@@ -20,27 +40,12 @@ public class Veiculos {
         this.idModeloVeiculo = idModeloVeiculo;
     }
 
-    public Veiculos(String tipoVeiculo) {
-        this.tipoVeiculo = tipoVeiculo;
-    }
     public double getConsumoPorLitroVeiculo() {
         return consumoPorLitroVeiculo;
     }
 
     public void setConsumoPorLitroVeiculo(double consumoPorLitroVeiculo) {
         this.consumoPorLitroVeiculo = consumoPorLitroVeiculo;
-    }
-
-
-    public Veiculos(IdDasMarcas idDasMarcas) {
-        this.idMarcaVeiculo = Integer.parseInt(idDasMarcas.code());
-        this.tipoVeiculo =  idDasMarcas.name();
-
-    }
-
-    public Veiculos(IdDosModelos idDosModelos) {
-        this.idModeloVeiculo = Integer.parseInt(idDosModelos.code());
-        this.modeloVeiculo = idDosModelos.name();
     }
 
     public void setIdMarcaVeiculo(int idMarcaVeiculo) {

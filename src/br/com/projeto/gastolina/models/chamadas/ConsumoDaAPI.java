@@ -16,6 +16,7 @@ public class ConsumoDaAPI extends Veiculos {
     public ConsumoDaAPI(String tipoVeiculo) {
         super(tipoVeiculo);
     }
+
     public ConsumoDaAPI(IdDasMarcas idDasMarcas) {
         super(idDasMarcas);
     }

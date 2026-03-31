@@ -1,6 +1,6 @@
 package br.com.projeto.gastolina.records;
 
-public record IdDasMarcas(
+public record IdDosAnosDosModelos(
     String code,
     String name
 ) {

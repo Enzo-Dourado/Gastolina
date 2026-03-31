@@ -1,7 +1,6 @@
 package br.com.projeto.gastolina.loops;
 
 import br.com.projeto.gastolina.models.superclass.Veiculos;
-
 import java.util.Scanner;
 
 public class TipoDeVeiculoLoop extends Veiculos {

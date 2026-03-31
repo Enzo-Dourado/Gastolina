@@ -12,10 +12,12 @@ import java.util.Scanner;
 public class ModeloDeVeiculoLoop extends Veiculos {
     private int buscarVeiculo;
 
-    public ModeloDeVeiculoLoop(IdDosModelos idDosModelos) {
+    public ModeloDeVeiculoLoop (IdDosModelos idDosModelos) {
         super(idDosModelos);
     }
-
+    public ModeloDeVeiculoLoop(String modeloVeiculo) {
+        super(modeloVeiculo);
+    }
 
     public int getBuscarVeiculo() {
         return buscarVeiculo;
