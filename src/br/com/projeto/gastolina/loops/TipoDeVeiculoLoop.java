@@ -4,21 +4,25 @@ import br.com.projeto.gastolina.models.superclass.Veiculos;
 import java.util.Scanner;
 
 public class TipoDeVeiculoLoop extends Veiculos {
-
+    // Atributos
     private String entrarNaApi;
 
+    // Construtores
     public TipoDeVeiculoLoop(String tipoVeiculo) {
         super(tipoVeiculo);
     }
 
+    // Getters
     public String getEntrarNaApi() {
         return entrarNaApi;
     }
 
+    // Setters
     public void setEntrarNaApi(String entrarNaApi) {
         this.entrarNaApi = entrarNaApi;
     }
 
+    // Metodos
     public void chamaTipoDeVeiculo() {
         Scanner sc = new Scanner(System.in);
         while (true) {
@@ -34,10 +38,5 @@ public class TipoDeVeiculoLoop extends Veiculos {
                 System.out.print("Digite que tipo de veiculo quer analisar (cars, motorcycles, trucks): ");
             }
         }
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
     }
 }

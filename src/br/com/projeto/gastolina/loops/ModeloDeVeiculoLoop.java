@@ -10,23 +10,28 @@ import com.google.gson.JsonArray;
 import java.util.Scanner;
 
 public class ModeloDeVeiculoLoop extends Veiculos {
+    // Atributos
     private int buscarVeiculo;
 
-    public ModeloDeVeiculoLoop (IdDosModelos idDosModelos) {
-        super(idDosModelos);
-    }
+    // Contrutores
     public ModeloDeVeiculoLoop(String modeloVeiculo) {
         super(modeloVeiculo);
     }
+    public ModeloDeVeiculoLoop (IdDosModelos idDosModelos) {
+        super(idDosModelos);
+    }
 
+    // Getters
     public int getBuscarVeiculo() {
         return buscarVeiculo;
     }
 
+    // Setters
     public void setBuscarVeiculo(int buscarVeiculo) {
         this.buscarVeiculo = buscarVeiculo;
     }
 
+    // Metodos
     public void chamaModeloDeVeiculo() {
         TipoDeVeiculoLoop loopTipoVeiculo =  new TipoDeVeiculoLoop(getTipoVeiculo());
         loopTipoVeiculo.chamaTipoDeVeiculo();
@@ -62,5 +67,11 @@ public class ModeloDeVeiculoLoop extends Veiculos {
             }
         }
         consumo.consumoDaAPIParaChamarModeloDoVeiculo();
+    }
+
+    @Override
+    public String toString() {
+        return "{Id do Veículo: " + getIdModeloVeiculo() +
+                "Nome do Veículo: " + getModeloVeiculo() + "}";
     }
 }
