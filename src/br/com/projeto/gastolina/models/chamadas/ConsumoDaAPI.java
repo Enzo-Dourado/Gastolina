@@ -62,9 +62,16 @@ public class ConsumoDaAPI extends Veiculos {
         System.out.println(getJson());
     }
 
+    public void consumoDaAPIParaChamarModeloDaMarcaDoVeiculo() {
+        setUrl("https://fipe.parallelum.com.br/api/v2/" + getTipoVeiculo() + "/brands/" +
+                getIdMarcaVeiculo() + "/models/" + getIdModeloVeiculo());
+
+        consumoDaAPI();
+        System.out.println(getJson());
+    }
     public void consumoDaAPIParaChamarAnoDoVeiculo(){
         setUrl("https://fipe.parallelum.com.br/api/v2/" + getTipoVeiculo() + "/brands/" +
-                getIdMarcaVeiculo() + "/models/" + getIdModeloVeiculo() + "/years");
+                getIdMarcaVeiculo() + "/models/" + getIdModeloVeiculo() + "/years/" + getIdAnoVeiculo());
 
         consumoDaAPI();
         System.out.println(getJson());

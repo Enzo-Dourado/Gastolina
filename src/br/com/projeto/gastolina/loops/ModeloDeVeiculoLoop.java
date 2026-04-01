@@ -35,6 +35,7 @@ public class ModeloDeVeiculoLoop extends Veiculos {
     public void chamaModeloDeVeiculo() {
         TipoDeVeiculoLoop loopTipoVeiculo =  new TipoDeVeiculoLoop(getTipoVeiculo());
         loopTipoVeiculo.chamaTipoDeVeiculo();
+        ChamarGson gson = new ChamarGson();
 
         ConsumoDaAPI consumo = new ConsumoDaAPI(loopTipoVeiculo.getEntrarNaApi());
         consumo.consumoDaAPI();
@@ -47,7 +48,6 @@ public class ModeloDeVeiculoLoop extends Veiculos {
             setBuscarVeiculo(sc.nextInt());
 
             if (getBuscarVeiculo() == 0) {
-                ChamarGson gson = new ChamarGson();
                 gson.chamaGson();
                 // Converte o Json em um Array
                 JsonArray jsonArray = gson.getGson().fromJson(consumo.getJson(), JsonArray.class);
@@ -60,6 +60,16 @@ public class ModeloDeVeiculoLoop extends Veiculos {
             } else if (getBuscarVeiculo() > 0) {
                 System.out.println("\nBuscando informações...\n");
                 consumo.setIdMarcaVeiculo(getBuscarVeiculo());
+
+                gson.chamaGson();
+
+                JsonArray jsonArray = gson.getGson().fromJson(consumo.getJson(), JsonArray.class);
+
+                for (var elementos : jsonArray) {
+                    IdDosModelos modelos = gson.getGson().fromJson(elementos, IdDosModelos.class);
+                    Veiculos veiculo = new Veiculos(modelos);
+                    System.out.println(veiculo);
+                }
                 break;
 
             } else {
